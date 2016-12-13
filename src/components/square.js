@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
+import '../styles/square.css'
 
 class Square extends Component {
+    constructor() {
+        super();
+        this.state = {
+            alive: false
+        };
+    }
+
     render() {
-        return (<h1 color="red">Hello</h1>);
+        return (
+            <button className={this.state.alive ? 'alive' : 'dead'} onClick={() =>{ this.setState({alive: true}); }}>
+            </button>
+        );
     }
 }
 
