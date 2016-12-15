@@ -78,7 +78,15 @@ class Game extends Component {
     * Progresses one step in the game of life.
     */
     step() {
-        console.log("step!");
+        const squares = this.state.squares.map(function(row) {
+            return row.slice();
+        })
+        for (var j = 0; j < squares.length; j++) {
+            for (var i = 0; i < squares[j].length; i++) {
+                countNeighbors(squares, i , j);
+            }
+        }
+        this.setState({squares: squares});
     }
 
     /*
@@ -86,6 +94,33 @@ class Game extends Component {
     */ 
     run() {
         console.log("run!");
+    }
+
+    /*
+    * Counts the number of neighbors for a given square
+    */
+    countNeighbors(squares, i, j) {
+        var count = 0;
+        if (this.isAlive(squares, i, j - 1)) { count += 1; }; // N
+        if (this.isAlive(squares, i + 1, j - 1)) { count += 1; }; // NE
+        if (this.isAlive(squares, i + 1, j)) { count += 1; }; // E
+        if (this.isAlive(squares, i + 1, j + 1)) { count += 1; }; // SE
+        if (this.isAlive(squares, i, j + 1)) { count += 1; }; // S
+        if (this.isAlive(squares, i - 1, j + 1)) { count += 1; }; // SW
+        if (this.isAlive(squares, i - 1, j)) { count += 1; }; // W
+        if (this.isAlive(squares, i - 1 , j- 1)) { count += 1; }; // NW
+        return count;
+    }
+
+    /*
+    * Returns false if square is not alive and true if square is alive
+    */
+    isAlive(squares, i, j) {
+        // edge cases
+        if (j < 0 || j >= squares.length || i < 0 || i >= squares[j].length) {
+            return false;
+        }
+        return squares[j][i];
     }
 }
 
