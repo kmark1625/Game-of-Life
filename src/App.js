@@ -8,8 +8,7 @@ class App extends Component {
     return (
       <div className="App">
           <h2>The Game of Life</h2>
-          <Square></Square>
-          <Square></Square>
+          <Board></Board>
       </div>
     );
   }

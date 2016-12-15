@@ -5,7 +5,7 @@ import Square from './square';
 class Board extends Component {
     constructor() {
         super();
-        var size = 5;
+        var size = 20;
         var squares = new Array(size);
         for (var i=0; i < squares.length; i++) {
             squares[i] = Array.apply(null, Array(size)).map(function() { return false});
