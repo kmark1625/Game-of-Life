@@ -3,18 +3,6 @@ import '../styles/board.css';
 import Square from './square';
 
 class Board extends Component {
-    constructor() {
-        super();
-        var size = 20;
-        var squares = new Array(size);
-        for (var i=0; i < squares.length; i++) {
-            squares[i] = Array.apply(null, Array(size)).map(function() { return false});
-        }
-        this.state = {
-            "squares": squares
-        };
-    }
-
     render() {
         return (
             <div>
@@ -24,7 +12,7 @@ class Board extends Component {
     }
 
     renderRows() {
-        return this.state.squares.map((rows,j) => {
+        return this.props.squares.map((rows,j) => {
             var row = rows.map((square,i) => {
                 return (<span>{this.renderSquare(i,j)}</span>);
             });
@@ -33,13 +21,7 @@ class Board extends Component {
     }
 
     renderSquare(i, j) {
-        return <Square alive={this.state.squares[j][i]} onClick={() => this.handleClick(i,j)}></Square>;
-    }
-
-    handleClick(i, j) {
-        const squares = this.state.squares.slice();
-        squares[j][i] = true;
-        this.setState({squares: squares});
+        return <Square alive={this.props.squares[j][i]} onClick={() => this.props.onClick(i,j)}></Square>;
     }
 }
 
