@@ -21,6 +21,8 @@ I decided to solve this problem using ReactJS. Rather than use a base html page 
 
 I decided to put the main logic for the game in the "Game" component. The "Board" component was responsible for rendering the board itself, which was made up of many "Square" components. I chose to model the board as a n x n array (array or arrays). I chose to only track a boolean value which was true if the cell was "alive" and false if the cell was "dead". The Game component contained the logic for progressing to the next state.
 
+Instead of explicitly stopping when there are no cells left alive, I chose to kept the game running until the user explicitly hits "stop".  This is because the user can add live cells while the game is still running so they can get the game into an "unstuck" state.
+
 **Future Improvements**
 
 * Improve board styling an increase board from 20x20 to 50x50. I ran into some styling issues with the larger board, so opted to keep the board at 20x20 for now.
