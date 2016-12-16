@@ -6,7 +6,7 @@ import ReactInterval from 'react-interval';
 class Game extends Component {
     constructor() {
         super();
-        var squares = this.setupSquares();
+        var squares = this.setupSquares(20);
 
         this.state = {
             iteration: 0,
@@ -65,8 +65,7 @@ class Game extends Component {
     * Sets up an array of arrays to represents the squares on the board
     * and initializes all cells to false except for initial state.
     */
-    setupSquares() {
-        var size = 20;
+    setupSquares(size) {
         var squares = new Array(size);
         for (var i=0; i < squares.length; i++) {
             squares[i] = Array.apply(null, Array(size)).map(function() { return false});
