@@ -5,7 +5,9 @@ This project is a Conway's game of life as described by the following Wikipedia 
 **How to run**
 
 * git clone https://github.com/kmark1625/Game-of-Life.git
-* yarn start (if yarn is not installed npm -g install yarn)
+* cd Game-of-Life
+* npm install (assumes npm is installed)
+* npm start
 
 **Running tests**
 
