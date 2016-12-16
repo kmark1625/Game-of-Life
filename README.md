@@ -25,6 +25,8 @@ I decided to put the main logic for the game in the "Game" component. The "Board
 
 Instead of explicitly stopping when there are no cells left alive, I chose to kept the game running until the user explicitly hits "stop".  This is because the user can add live cells while the game is still running so they can get the game into an "unstuck" state.
 
+I assumed x starts at 0 and goes to the right and the y axis starts at 0 and goes down.
+
 **Future Improvements**
 
 * Improve board styling an increase board from 20x20 to 50x50. I ran into some styling issues with the larger board, so opted to keep the board at 20x20 for now.
