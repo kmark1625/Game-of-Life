@@ -29,4 +29,4 @@ Instead of explicitly stopping when there are no cells left alive, I chose to ke
 
 * Improve board styling an increase board from 20x20 to 50x50. I ran into some styling issues with the larger board, so opted to keep the board at 20x20 for now.
 * Add display of the current iteration number and add the ability to increase the rate of a run.
-* Improve test coverage and add more detailed tests for run-cases.
+* Improve test coverage and add more detailed tests for run-cases.  Adding integration tests instead of just unit testing methods.
