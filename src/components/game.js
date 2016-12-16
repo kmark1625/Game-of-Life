@@ -10,7 +10,8 @@ class Game extends Component {
 
         this.state = {
             iteration: 0,
-            squares: squares
+            squares: squares,
+            isRunning: false
         }
     }
 
@@ -30,6 +31,12 @@ class Game extends Component {
                     onClick={() => this.run()}>
                     Run
                 </button>
+                <button className="control"
+                    onClick={() => this.stop()}>
+                    Stop
+                </button>
+                <ReactInterval timeout={1000} enabled={this.state.isRunning}
+          callback={() => this.step()} />
             </div>
         );
     }
@@ -91,6 +98,10 @@ class Game extends Component {
         this.setState({squares: squares});
     }
 
+    stop() {
+        this.setState({isRunning: false});
+    }
+
     /*
     * Determines whether a cell should be alive (true) or dead (false)
     * based on number of live neighbors.
@@ -100,7 +111,7 @@ class Game extends Component {
         // by underpopulation.
         if (count < 2) { return false };
         // Any live cell with two or three live neighbors lives on to the next generation
-        if (currIsAlive && count === 2 || count === 3) { return true; };
+        if (currIsAlive && (count === 2 || count === 3)) { return true; };
         // Any live cell with more than three neighbors dies, as if by overpopulation.
         if (currIsAlive && count > 3) { return false };
         // Any dead cell with exactly three live neighbors becomes a live cell,
@@ -113,7 +124,7 @@ class Game extends Component {
     * Continually steps through until there are no more alive cells.
     */ 
     run() {
-        console.log("run!");
+        this.setState({isRunning: true});
     }
 
     /*
