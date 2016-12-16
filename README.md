@@ -1,6 +1,6 @@
 **The Game Of Life:**
 
-This project is a Conway's game of life as described by the following Wikipedia article (https://en.wikipedia.org/wiki/Conway's_Game_of_Life).  
+This project is a Conway's game of life as described by the following Wikipedia article (https://en.wikipedia.org/wiki/Conway's_Game_of_Life).  You are able to click on the board to add "live" cells. This can be done even when the game is running.
 
 **How to run**
 
